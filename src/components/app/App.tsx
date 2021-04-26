@@ -1,27 +1,10 @@
 import React, { useEffect, useState } from 'react';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 
-import Header from './components/header/Header';
-import Home from './components/home/Home';
-import Abc from './components/abc/Abc';
-import Xyz from './components/xyz/Xyz';
+import Header from '../header/Header';
 import { Container } from 'react-bootstrap';
 
-const routes = [
-  {
-    path: '/',
-    exact: true,
-    main: Home,
-  },
-  {
-    path: '/abc',
-    main: Abc,
-  },
-  {
-    path: '/xyz',
-    main: Xyz,
-  },
-];
+import { rootPath, routes } from '../routes';
 
 function App() {
   return (
@@ -32,9 +15,9 @@ function App() {
           {routes.map((route, index) => (
             <Route
               key={index}
-              path={route.path}
+              path={`${rootPath}${route.path}`}
               exact={route.exact}
-              children={<route.main />}
+              children={<route.page />}
             />
           ))}
         </Switch>

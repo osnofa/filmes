@@ -1,25 +1,22 @@
 import React from 'react';
-import { Button, Form, FormControl, Nav, Navbar } from 'react-bootstrap';
+import { Nav, Navbar } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
+import { rootPath, routes } from '../routes';
 
 const Header = () => {
   return (
     <Navbar bg="light" variant="light" expand="lg">
-      <Navbar.Brand as={Link} to="/">
+      <Navbar.Brand as={Link} to="/filmes">
         Navbar
       </Navbar.Brand>
       <Navbar.Toggle aria-controls="basic-navbar-nav" />
       <Navbar.Collapse id="basic-navbar-nav">
         <Nav className="mr-auto">
-          <Nav.Link as={Link} to="/">
-            Home
-          </Nav.Link>
-          <Nav.Link as={Link} to="/abc">
-            Abc
-          </Nav.Link>
-          <Nav.Link as={Link} to="/xyz">
-            Xyz
-          </Nav.Link>
+          {routes.map((route, index) => (
+            <Nav.Link as={Link} to={`${rootPath}${route.path}`}>
+              {route.name}
+            </Nav.Link>
+          ))}
         </Nav>
         <Navbar.Text>
           Signed in as: <a href="#login">Mark Otto</a>
