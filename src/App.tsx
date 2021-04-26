@@ -1,9 +1,11 @@
 import React, { useEffect, useState } from 'react';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 
+import Header from './components/header/Header';
 import Home from './components/home/Home';
 import Abc from './components/abc/Abc';
 import Xyz from './components/xyz/Xyz';
+import { Container } from 'react-bootstrap';
 
 const routes = [
   {
@@ -24,16 +26,19 @@ const routes = [
 function App() {
   return (
     <Router>
-      <Switch>
-        {routes.map((route, index) => (
-          <Route
-            key={index}
-            path={route.path}
-            exact={route.exact}
-            children={<route.main />}
-          />
-        ))}
-      </Switch>
+      <Container>
+        <Header />
+        <Switch>
+          {routes.map((route, index) => (
+            <Route
+              key={index}
+              path={route.path}
+              exact={route.exact}
+              children={<route.main />}
+            />
+          ))}
+        </Switch>
+      </Container>
     </Router>
   );
 }
