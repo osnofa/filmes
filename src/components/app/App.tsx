@@ -4,7 +4,7 @@ import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import Header from '../header/Header';
 import { Container } from 'react-bootstrap';
 
-import { rootPath, routes } from '../routes';
+import { rootPath, routes } from '../routing';
 
 function App() {
   return (

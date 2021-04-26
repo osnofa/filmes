@@ -1,7 +1,7 @@
 import React from 'react';
 import { Nav, Navbar } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
-import { rootPath, routes } from '../routes';
+import { rootPath, routes } from '../routing';
 
 const Header = () => {
   return (
